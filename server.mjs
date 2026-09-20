@@ -38,7 +38,7 @@ http.createServer(async (req, res) => {
     }
 
     const data = await readFile(file);
-    res.writeHead(200, { 'Content-Type': types[extname(file)] || 'application/octet-stream', 'Cache-Control': extname(file) === '.html' ? 'no-cache' : 'public, max-age=86400' });
+    res.writeHead(200, { 'Content-Type': types[extname(file)] || 'application/octet-stream', 'Cache-Control': extname(file) === '.html' ? 'no-cache' : 'public, max-age=3600' });
     res.end(data);
   } catch {
     res.writeHead(500, { 'Content-Type': 'text/plain; charset=utf-8' });
